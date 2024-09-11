@@ -35,10 +35,10 @@
   import 'swiper/css';
   import 'swiper/css/pagination';
   import 'swiper/css/navigation';
-  import 'swiper/css/effect-cube'; // Estilos para el efecto 'cube'
+  import 'swiper/css/effect-cube'; // Importar estilos para el efecto cube
 
   // Import required modules
-  import { Pagination, Navigation, EffectCube } from 'swiper'; // Asegúrate de que esté importado desde 'swiper'
+  import { Pagination, Navigation, EffectCube } from 'swiper/modules';
 
   export default {
     components: {
@@ -47,7 +47,7 @@
     },
     setup() {
       return {
-        modules: [Pagination, Navigation, EffectCube], // Módulos requeridos
+        modules: [Pagination, Navigation, EffectCube],
         slides: [
           {
             videoSrc: '/Video1.mp4',

@@ -25,7 +25,7 @@ export default defineNuxtConfig({
   },
   build: {
     transpile: [
-      'swiper', // Añadido aquí
+      // Añadir aquí cualquier otra librería que quieras transpilar
     ],
   },
 });
