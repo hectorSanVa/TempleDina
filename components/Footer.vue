@@ -88,6 +88,7 @@ export default {
   flex: 1 1 150px;
   min-width: 120px;
   max-width: 200px;
+  margin-bottom: 15px; /* Reduce el espacio entre secciones en pantallas grandes */
   text-align: center; /* Centra el contenido */
 }
 
@@ -113,13 +114,13 @@ export default {
 
 .social-links {
   display: flex;
-  gap: 15px;
+  gap: 10px; /* Reduce el espacio entre los iconos de redes sociales */
   margin: 10px 0;
   justify-content: center; /* Centra los iconos de redes sociales */
 }
 
 .social-icon {
-  font-size: 1.5em;
+  font-size: 1.3em; /* Ajusta el tamaño de los iconos */
   transition: transform 0.3s, color 0.3s;
 }
 
@@ -131,7 +132,7 @@ export default {
 .footer-links {
   text-align: center;
   width: 100%;
-  font-size: 0.8em;
+  font-size: 0.75em; /* Ajusta el tamaño del texto en enlaces */
   color: #b0b0b0;
   margin-top: 10px;
 }
@@ -139,7 +140,7 @@ export default {
 .footer-links a {
   text-decoration: none;
   color: #b0b0b0;
-  padding: 0 6px;
+  padding: 0 4px; /* Reduce el espacio entre enlaces */
   transition: color 0.3s, text-decoration 0.3s;
 }
 
@@ -155,7 +156,7 @@ export default {
 }
 
 .footer-section p {
-  margin: 5px 0;
+  margin: 2px 0; /* Reduce el espacio entre párrafos */
 }
 
 .footer h4 {
@@ -167,7 +168,7 @@ export default {
   width: 100%;
   font-size: 0.7em;
   color: #d1d1d1;
-  margin-top: 10px;
+  margin-top: 5px; /* Reduce el espacio en la parte superior */
 }
 
 @media (max-width: 576px) {
@@ -178,13 +179,13 @@ export default {
   }
   .footer-section {
     max-width: 100%; /* Asegura que las secciones ocupen toda la anchura disponible */
-    margin-bottom: 15px; /* Añade espacio entre secciones */
+    margin-bottom: 10px; /* Reduce el espacio entre secciones en móviles */
   }
   .social-icon {
-    font-size: 1.3em;
+    font-size: 1.2em; /* Ajusta el tamaño de los iconos en móviles */
   }
   .footer-links {
-    font-size: 0.75em; /* Ajusta el tamaño del texto en enlaces */
+    font-size: 0.7em; /* Ajusta el tamaño del texto en enlaces en móviles */
   }
 }
 </style>
