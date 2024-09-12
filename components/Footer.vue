@@ -29,14 +29,6 @@
       </div>
     </div>
 
-    <div class="footer-section">
-      <h4>¿NOS CUENTAS TU PROYECTO?</h4>
-      <p>Ensalza: agencia de desarrollo y diseño web</p>
-      <p>Dirección: Calle Falsa 123, Ciudad, País</p>
-      <p>Tel: +52 5657895551</p>
-      <p>Mail: info@ensalza.com</p>
-    </div>
-
     <p class="footer-links">
       <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Términos y Condiciones</a> | 
       <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Aviso de Privacidad</a>
@@ -74,30 +66,27 @@ export default {
 
 <style scoped>
 .footer {
-  padding: 20px 5%;
+  padding: 10px 2%;
+  text-align: left;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 20px;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: auto;
   background-color: #2c3e50;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .footer-section {
   flex: 1 1 150px;
-  min-width: 120px;
-  max-width: 200px;
-  margin-bottom: 15px; /* Reduce el espacio entre secciones en pantallas grandes */
-  text-align: center; /* Centra el contenido */
+  min-width: 150px;
+  max-width: 250px;
 }
 
 .footer-section h4 {
   font-size: 1em;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
 .footer-list {
@@ -109,38 +98,38 @@ export default {
 }
 
 .footer-list li {
-  margin-bottom: 5px;
+  margin-bottom: 3px;
 }
 
 .social-links {
   display: flex;
-  gap: 10px; /* Reduce el espacio entre los iconos de redes sociales */
+  gap: 10px;
   margin: 10px 0;
-  justify-content: center; /* Centra los iconos de redes sociales */
+  justify-content: flex-start;
 }
 
 .social-icon {
-  font-size: 1.3em; /* Ajusta el tamaño de los iconos */
+  font-size: 1.5em; /* Tamaño de los íconos */
   transition: transform 0.3s, color 0.3s;
 }
 
 .social-icon:hover {
-  transform: scale(1.2);
+  transform: scale(1.15);
   filter: brightness(1.2);
 }
 
 .footer-links {
   text-align: center;
   width: 100%;
-  font-size: 0.75em; /* Ajusta el tamaño del texto en enlaces */
-  color: #b0b0b0;
-  margin-top: 10px;
+  font-size: 0.8em;
+  color: #d1d1d1;
+  margin-top: 8px;
 }
 
 .footer-links a {
   text-decoration: none;
-  color: #b0b0b0;
-  padding: 0 4px; /* Reduce el espacio entre enlaces */
+  color: #d1d1d1;
+  padding: 0 4px;
   transition: color 0.3s, text-decoration 0.3s;
 }
 
@@ -152,11 +141,10 @@ export default {
 .footer p {
   margin: 0;
   font-size: 0.8em;
-  line-height: 1.5;
 }
 
 .footer-section p {
-  margin: 2px 0; /* Reduce el espacio entre párrafos */
+  margin: 5px 0;
 }
 
 .footer h4 {
@@ -168,24 +156,65 @@ export default {
   width: 100%;
   font-size: 0.7em;
   color: #d1d1d1;
-  margin-top: 5px; /* Reduce el espacio en la parte superior */
+  margin-top: 8px;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 8px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    text-align: center;
+    flex: 1 1 auto;
+    min-width: 100px;
+    max-width: 100%;
+  }
+
+  .footer-list {
+    font-size: 0.8em;
+  }
+
+  .social-links {
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .social-icon {
+    font-size: 1.3em;
+  }
 }
 
 @media (max-width: 576px) {
   .footer {
-    padding: 15px;
-    flex-direction: column;
-    align-items: center;
+    padding: 5px;
   }
+
   .footer-section {
-    max-width: 100%; /* Asegura que las secciones ocupen toda la anchura disponible */
-    margin-bottom: 10px; /* Reduce el espacio entre secciones en móviles */
+    flex: 1 1 100%;
+    text-align: center;
+    margin-bottom: 10px;
   }
-  .social-icon {
-    font-size: 1.2em; /* Ajusta el tamaño de los iconos en móviles */
-  }
+
   .footer-links {
-    font-size: 0.7em; /* Ajusta el tamaño del texto en enlaces en móviles */
+    font-size: 0.7em;
+    margin-top: 5px;
+  }
+
+  .footer-copyright {
+    font-size: 0.6em;
+    margin-top: 5px;
+  }
+
+  .social-links {
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .social-icon {
+    font-size: 1.2em;
   }
 }
 </style>
