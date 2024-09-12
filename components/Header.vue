@@ -8,20 +8,22 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" :style="navLinkStyle" href="#inicio">Inicio</a>
+            <a class="nav-link" href="#inicio"><span>Inicio</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" :style="navLinkStyle" href="#quienes-somos">¿Quiénes somos?</a>
+            <a class="nav-link" href="#quienes-somos"><span>¿Quiénes somos?</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" :style="navLinkStyle" href="#la-plataforma">La plataforma</a>
+            <a class="nav-link" href="#la-plataforma"><span>La plataforma</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" :style="navLinkStyle" href="#contacto">Contacto</a>
+            <a class="nav-link" href="#contacto"><span>Contacto</span></a>
           </li>
         </ul>
         <div class="ml-auto">
-          <button class="btn btn-register" :style="buttonRegisterStyle">Regístrate</button>
+          <button class="btn btn-register">
+            <span>Regístrate</span>
+          </button>
         </div>
       </div>
     </nav>
@@ -39,17 +41,6 @@ export default {
     headerStyle() {
       return {
         backgroundColor: this.isScrolled ? colors.header.scrolledBackgroundColor : colors.header.backgroundColor,
-      };
-    },
-    navLinkStyle() {
-      return {
-        backgroundColor: colors.header.navLinkBackgroundColor,
-        color: colors.header.navLinkColor,
-      };
-    },
-    buttonRegisterStyle() {
-      return {
-        backgroundColor: colors.header.buttonRegisterBackgroundColor,
       };
     }
   }
@@ -70,7 +61,7 @@ header {
 }
 
 header.transparent {
-  background-color: transparent; /* Transparente por defecto */
+  background-color: transparent;
 }
 
 header.scrolled {
@@ -103,29 +94,69 @@ header.scrolled {
 }
 
 .nav-link {
-  padding: 10px 20px;
-  border-radius: 20px;
-  border: 2px solid;
+  border: 0;
+  background-image: linear-gradient(
+    150deg,
+    #f12711,
+    #f5af19,
+    #00ddff
+  );
+  border-radius: 8px;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  font-size: 16px;
+  padding: 4px;
+  cursor: pointer;
+  transition: 0.3s;
   text-decoration: none;
-  transition: background-color 0.3s, color 0.3s;
-  border-color: #F57313;
 }
 
-.nav-link:hover {
-  background-color: var(--navLinkHoverBackgroundColor);
+.nav-link span {
+  background-color: #111;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.nav-link:hover span {
+  background: none;
+}
+
+.nav-link:active {
+  transform: scale(0.9);
 }
 
 .btn-register {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
+  border: 0;
+  background-image: linear-gradient(
+    150deg,
+    #f12711,
+    #f5af19,
+    #00ddff
+  );
+  border-radius: 8px;
+  color: #fff;
+  display: flex;
+  font-size: 16px;
+  padding: 4px;
   cursor: pointer;
-  transition: background-color 0.3s;
-  margin-left: 20px;
+  transition: 0.3s;
 }
 
-.btn-register:hover {
-  background-color: var(--buttonRegisterHoverBackgroundColor);
+.btn-register span {
+  background-color: #111;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.btn-register:hover span {
+  background: none;
+}
+
+.btn-register:active {
+  transform: scale(0.9);
 }
 
 body {
