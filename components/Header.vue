@@ -16,24 +16,12 @@
             <a class="nav-link" href="#quienes-somos"><span>Nosotros</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#la-plataforma"><span>Servicios</span></a>
+            <a class="nav-link" href="#servicios"><span>Servicios</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#contacto"><span>Contacto</span></a>
-          </li>
-          <!-- Botón "Regístrate" en el menú desplegable -->
-          <li class="nav-item d-lg-none">
-            <button class="btn btn-register" @click="$emit('open-register-modal')">
-              <span>Regístrate</span>
-            </button>
-          </li>
+          </li>          
         </ul>
-        <!-- Botón "Regístrate" en pantallas grandes -->
-        <div class="d-none d-lg-block ms-3">
-          <button class="btn btn-register" @click="$emit('open-register-modal')">
-            <span>Regístrate</span>
-          </button>
-        </div>
       </div>
     </nav>
   </header>

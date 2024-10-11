@@ -2,6 +2,8 @@
 import { ref, computed, onMounted } from 'vue'
 import { alertaExito, showAlertEmail } from '@/utils/alertas'
 import colors from '~/assets/styles/colors.json';
+import contacto from '@/public/contacto/contacto.json'
+
 
 const form = ref({
   nombre: '',
@@ -48,6 +50,24 @@ const submitForm = () => {
 }
 
 onMounted(() => {
+  //animacion
+  const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          } else {
+            entry.target.classList.remove('is-visible');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+      observer.observe(el);
+    });
+
   const root = document.documentElement
 
   root.style.setProperty('--contact-container-gradient1', colors.zoneContact['contact-container-backgroundColor-gradient1'])
@@ -59,67 +79,71 @@ onMounted(() => {
   root.style.setProperty('--gradient1', colors.zoneContact['gradient1'])
   root.style.setProperty('--gradient2', colors.zoneContact['gradient2'])
   root.style.setProperty('--button', colors.zoneContact['button'])
+
+  
 })
 </script>
 
 <template>
-  <div class="container mt-5">
+  <div class="container mt-5" v-scroll-observer>
     <div class="row">
-      <div class="col-md-6 mb-4">
-        <div class="bg-light p-4 rounded shadow-sm contact-info">
-          <h2 class="text-primary">Contáctanos</h2>
-          <h3>¿Cómo podemos ayudarte?</h3>
-          <p>¿Necesitas hablar con nosotros?</p>
+      <div class="col-md-6 animate-on-scroll">
+        <div class="bg-light p-4 rounded shadow-sm contact-info h-100 d-flex flex-column justify-content-center align-items-center">
+          <h2 class="text-primary">{{contacto.tittle}}</h2>
+          <h3>{{contacto.subtitulo}}</h3>
+          <p>{{ contacto.p1 }}</p>
           <p>
-            <i class="fa-solid fa-map-pin"></i> Tapachula, Chiapas 30700
+            <i class="fa-solid fa-map-pin"></i> {{contacto.direccion}}
           </p>
           <p>
-            <i class="fa-solid fa-phone-volume"></i> +52 (962) 234-5678
+            <i class="fa-solid fa-phone-volume"></i> {{contacto.celphone}}
           </p>
           <p>
-            <i class="fa-solid fa-at"></i> devpilots.oficial@example.com
+            <i class="fa-solid fa-at"></i> {{ contacto.correo }}
           </p>
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 animate-on-scroll">
         <form @submit.prevent="submitForm" class="contact-form bg-light p-4 rounded shadow-sm">
-          <div class="mb-3">
+          <div class="mb-3 animate-on-scroll">
             <label for="nombre" class="form-label">Nombre</label>
             <div class="input-group">
               <span class="input-group-text"><i class="fa-solid fa-user-astronaut"></i></span>
               <input type="text" id="nombre" v-model="form.nombre" class="form-control" required />
             </div>
           </div>
-          <div class="mb-3">
+          <div class="mb-3 animate-on-scroll">
             <label for="email" class="form-label">Email</label>
             <div class="input-group">
               <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
               <input type="email" id="email" v-model="form.email" ref="emailInput" class="form-control" required />
             </div>
           </div>
-          <div class="mb-3">
+          <div class="mb-3 animate-on-scroll">
             <label for="telefono" class="form-label">Número de teléfono</label>
             <div class="input-group">
               <span class="input-group-text"><i class="fa-solid fa-square-phone-flip"></i></span>
               <input type="tel" id="telefono" v-model="form.telefono" class="form-control" required />
             </div>
           </div>
-          <div class="mb-3">
+          <div class="mb-3 animate-on-scroll">
             <label for="mensaje" class="form-label">Mensaje</label>
             <div class="input-group">
               <span class="input-group-text"><i class="fa-regular fa-comment"></i></span>
               <textarea id="mensaje" v-model="form.mensaje" class="form-control" required></textarea>
             </div>
           </div>
-          <div class="d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary" :disabled="loading">
-              Enviar
-              <i class="fa-solid fa-paper-plane btn-icon ms-2"></i>
-            </button>
-            <div v-if="loading" class="spinner-border ms-2" role="status">
-              <span class="visually-hidden">Loading...</span>
+          <div class="d-flex justify-content-center align-items-center animate-on-scroll">
+              <!-- Botón de enviar solo se muestra cuando no está cargando -->
+              <button v-if="!loading" type="submit" class="btn btn-primary m-0">
+                Enviar
+                <i class="fa-solid fa-paper-plane btn-icon ms-2"></i>
+              </button>
+              <!-- Spinner solo se muestra cuando está cargando -->
+              <div v-else class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
             </div>
-          </div>
         </form>
       </div>
     </div>
@@ -129,8 +153,14 @@ onMounted(() => {
 <style scoped>
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css');
 
+.container{
+  font-family: "Playpen Sans", cursive;
+  min-height: 100vh;
+}
+
 .contact-info {
   background: linear-gradient(to right, var(--gradient1), var(--gradient2));
+
 }
 
 .contact-form {
@@ -233,5 +263,42 @@ button:after {
   margin-bottom: 1rem;
 }
 
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
 
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.col-md-6:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.col-md-6:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.mb-3:nth-child(1) {
+  transition-delay: 0.3s;
+}
+
+.mb-3:nth-child(2) {
+  transition-delay: 0.4s;
+}
+
+.mb-3:nth-child(3) {
+  transition-delay: 0.5s;
+}
+
+.mb-3:nth-child(4) {
+  transition-delay: 0.6s;
+}
+
+.d-flex.justify-content-center {
+  transition-delay: 0.7s;
+}
 </style>
