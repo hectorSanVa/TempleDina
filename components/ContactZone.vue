@@ -89,7 +89,7 @@ onMounted(() => {
     <div class="row">
       <div class="col-md-6 animate-on-scroll">
         <div class="bg-light p-4 rounded shadow-sm contact-info h-100 d-flex flex-column justify-content-center align-items-center">
-          <h2 class="text-primary">{{contacto.tittle}}</h2>
+          <h2 class="">{{contacto.tittle}}</h2>
           <h3>{{contacto.subtitulo}}</h3>
           <p>{{ contacto.p1 }}</p>
           <p>
@@ -160,11 +160,20 @@ onMounted(() => {
 
 .contact-info {
   background: linear-gradient(to right, var(--gradient1), var(--gradient2));
+  color: var(--text-principal-color);
+}
 
+.contact-info h2{
+  color: var(--contact-container-gradient1);
 }
 
 .contact-form {
   background: linear-gradient(to right, var(--gradient1), var(--gradient2));
+  color: var(--text-principal-color)
+}
+
+.btn-primary{
+  color: var(--contact-container-gradient2)
 }
 
 .btn-icon {
