@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import colors from '~/assets/styles/colors.json';
+import colors from '@/public/data/colors.json';
 
 defineProps({
   service: {

@@ -1,13 +1,13 @@
 <script setup>
 import Card from './Card.vue'; // Importa el componente Card
 import { ref, onMounted } from 'vue';
-import colors from '~/assets/styles/colors.json';
+import colors from '@/public/data/colors.json';
 
 const serviceCategories = ref([]);
 
 const loadServices = async () => {
     try {
-        const response = await fetch('/myservices/servicesData.json');
+        const response = await fetch('/data/servicesData.json');
         const data = await response.json();
         serviceCategories.value = data.categories;
     } catch (error) {

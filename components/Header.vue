@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import colors from '~/assets/styles/colors.json';
+import colors from '@/public/data/colors.json';
 
 export default {
   props: {

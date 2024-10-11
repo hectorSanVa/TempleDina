@@ -1,8 +1,8 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import { alertaExito, showAlertEmail } from '@/utils/alertas'
-import colors from '~/assets/styles/colors.json';
-import contacto from '@/public/contacto/contacto.json'
+import colors from '@/public/data/colors.json';
+import contacto from '@/public/data/contacto.json'
 
 
 const form = ref({
@@ -85,7 +85,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="container mt-5" v-scroll-observer>
+  <div class="container mt-5">
     <div class="row">
       <div class="col-md-6 animate-on-scroll">
         <div class="bg-light p-4 rounded shadow-sm contact-info h-100 d-flex flex-column justify-content-center align-items-center">

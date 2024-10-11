@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import data from '@/assets/styles/WhoAreWe.json';
+import data from '@/public/data/WhoAreWe.json';
 
 export default {
   name: 'WhoAreWe',
