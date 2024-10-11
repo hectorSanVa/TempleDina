@@ -72,13 +72,10 @@ onMounted(() => {
 
   root.style.setProperty('--contact-container-gradient1', colors.zoneContact['contact-container-backgroundColor-gradient1'])
   root.style.setProperty('--contact-container-gradient2', colors.zoneContact['contact-container-backgroundColor-gradient2'])
-  root.style.setProperty('--contact-info-background-color', colors.zoneContact['contact-info-backgroundColor'])
   root.style.setProperty('--text-principal-color', colors.zoneContact['textPrincipal'])
-  root.style.setProperty('--text-principal-border', colors.zoneContact['textPrincipal-borde'])
   root.style.setProperty('--text-p', colors.zoneContact['texto-p'])
   root.style.setProperty('--gradient1', colors.zoneContact['gradient1'])
   root.style.setProperty('--gradient2', colors.zoneContact['gradient2'])
-  root.style.setProperty('--button', colors.zoneContact['button'])
 
   
 })
